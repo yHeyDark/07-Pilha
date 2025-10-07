@@ -85,15 +85,23 @@ void push()
 
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
-	novo->prox = NULL;
-
+	novo->prox = topo;
+	topo = novo;
+	cout << "O elemento" << novo->valor << " foi inserido no topo";
 
 }
 
 void pop()
 {
-
-	
+	if (topo == NULL)
+	{
+		cout << "Pilha Vazia";
+		return;
+	}
+	NO* aux = topo;
+	topo = topo->prox;
+	cout << "elemento " << aux->valor << "excluido";
+	free(aux);
 
 }
 
